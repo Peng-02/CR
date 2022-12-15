@@ -1,0 +1,124 @@
+@import url("./normalize.css");
+a{
+    text-decoration:none;
+    font-size:xx-large;
+}
+@font-face {
+    font-family: "阿里妈妈数黑体 Bold";
+    font-weight: 700;
+    src: url("../font/Alimama_ShuHeiTi_Bold.woff2") format("woff2"),
+    url("../font/Alimama_ShuHeiTi_Bold.woff") format("woff");
+    font-display: swap;
+}
+div{
+    font-family:"阿里妈妈数黑体 Bold" ;
+}
+body {
+    background-color: white;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    background-color: burlywood;
+    height: 1400px;
+    width: 1400px;
+}
+main #guide {
+    width: 47%;
+    height: 23%;
+    display: grid;
+    margin-top: -84%;
+    margin-left: 16%;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    background-color:bisque;
+}
+main #guide .the_guide{
+    width: 60%;
+    height: 100%;
+    margin:auto;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+main #guide .the_guide .d_a{
+    display: flex;
+    width: 90%;
+    height: 50%;
+    margin:auto;
+    border-radius: 10px;
+    border-style:solid;
+    border-width: medium;
+    border-color: black;
+}
+main #grds{
+    width: 94%;
+    height: 84%;
+    margin-top: 2%;
+    margin-left: 2%;
+    background-color:cyan;
+    display: grid;
+    padding: 1%;
+    grid-template-columns: repeat(18, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+}
+main #grds .card{
+    display: flex;
+    flex-direction: column;
+    background-color:white;
+    border-radius: 20px;
+    border-style:solid;
+    border-width:medium;
+    margin: 0;
+    text-align:center;
+}
+main #grds .card .e_n{
+    margin:auto;
+}
+main #grds .card .e_cn{
+    margin:auto;
+}
+main #grds .card .top{
+    margin:auto;
+}
+main #grds .card .middle{
+    margin:auto;
+}
+main #grds .card .bottom{
+    margin:auto;
+}
+main #grds .card .e_w{
+    margin:auto;
+}
+@media (max-width: 992px) {
+    main {
+        width: 100%;
+        height: auto;
+    }
+    main #guide{
+        display: none;
+        height: auto ;
+        margin: auto;
+    }
+    main #grds .card .middle{
+        height: auto ;
+        margin: auto;
+    }
+    main #grds .card .bottom{
+        display: none;
+        height: auto ;
+        margin: auto;
+    }
+    main #grds{
+        overflow-x: scroll;
+        height: auto;
+        margin-bottom: 2%;
+    }
+    main #grds .card{
+        height: auto ;
+        width:70%;
+        padding-top: 10%;
+        padding-bottom: 10%;
+    }
+}

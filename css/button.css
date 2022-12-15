@@ -1,0 +1,143 @@
+/* General Demo Style */
+
+@import url(http://fonts.useso.com/css?family=Lato:300,400,700);
+
+
+
+@font-face {
+
+	font-family: 'fontawesome';
+
+	src:url('../fonts/fontawesome.eot');
+
+	src:url('../fonts/fontawesome.eot?#iefix') format('embedded-opentype'),
+
+		url('../fonts/fontawesome.svg#fontawesome') format('svg'),
+
+		url('../fonts/fontawesome.woff') format('woff'),
+
+		url('../fonts/fontawesome.ttf') format('truetype');
+
+	font-weight: normal;
+
+	font-style: normal;
+
+}
+
+
+
+body, html { font-size: 100%; 	padding: 0; margin: 0;}
+
+
+
+/* Reset */
+
+*,
+
+*:after,
+
+*:before {
+
+	-webkit-box-sizing: border-box;
+
+	-moz-box-sizing: border-box;
+
+	box-sizing: border-box;
+
+}
+
+
+
+/* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
+
+.clearfix:before,
+
+.clearfix:after {
+
+	content: " ";
+
+	display: table;
+
+}
+
+
+
+.clearfix:after {
+
+	clear: both;
+
+}
+
+
+
+body {
+
+    font-family: 'Lato', Calibri, Arial, sans-serif;
+
+    color: #47a3da;
+
+
+
+}
+
+
+
+a {
+
+	color: #f0f0f0;
+
+	text-decoration: none;
+
+}
+
+
+
+a:hover {
+
+	color: #000;
+
+}
+
+
+
+button {
+	color: #0099CC; 
+	background: transparent; 
+	border: 2px solid #0099CC;
+	border-radius: 6px; 
+	color: white;
+	padding: 16px 32px;
+	text-align: center;
+	display: block;
+	font-size: 8px;
+	margin: 4px 0px 0px auto;
+	-webkit-transition-duration: 0.4s; /* Safari */
+	transition-duration: 0.4s;
+	cursor: pointer;
+	text-decoration: none;
+	text-transform: uppercase;
+	width:10%;
+	background-color: white; 
+    color: black; 
+    border: 2px solid #008CBA;
+  }
+  /* 悬停样式 */
+  
+button:hover {
+	background-color: #008CBA;
+      color: white;
+  }
+
+button.active {
+
+	background: #008CBA;
+
+}
+
+button.disabled {
+
+	background: #aaa;
+
+	pointer-events: none;
+
+}
