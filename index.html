@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<link rel="stylesheet" type="text/css" href="css/button.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<link rel="stylesheet" type="text/css" href="css/all.css" />
+		<script src="js/modernizr.custom.js"></script>
+		<title>CR_intro</title>
+		<link rel="shortcut icon" href="image/logo/R-C.png"
+	</head>
+	<body class="cbp-spmenu-push">
+		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s0">
+			<img src="image/logo/cr_logo.png" alt="cr_logo" title="cr_logo">
+			<h3>Menu</h3>
+			<a href="./Gameplay.html"			target="_blank">游戏玩法</a>
+			<a href="./Cards.html"				target="_blank">卡牌介绍</a>
+			<a href="./Desks.html"				target="_blank">卡组介绍</a>
+			<a href="./Emotions.html"			target="_blank">表情</a>
+			<a href="./Feedback.html"			target="_blank">反馈</a>
+			<a href="https://cr.qq.com"			target="view_window">腾讯官网</a>
+			<a href="https://clashroyale.com"	target="view_window">芬兰总官网</a>
+		</nav>
+		<div class="container">
+			<section class="button">
+				<button id ="signin">登录/注册</button>
+				<button id="showRightPush">显示/隐藏导航</button>
+			</section>
+			<section>
+				<img src="image/logo/Road2CR_Tks.jfif" alt="Road2CR">
+			</section>
+		</div>
+		
+		<p style="margin: 400px auto 0;width: 1000px;font-size: 20px ;color: #8d2dbd;text-align: center;"><a href="#" style="color: #3755AD;">回到顶端</a></p>
+
+		<script src="js/classie.js"></script>
+		<script>
+			var menuRight = document.getElementById( 'cbp-spmenu-s0' ),
+				showRightPush = document.getElementById( 'showRightPush' ),
+				body = document.body;
+
+			
+			showRightPush.onclick = function() {
+				classie.toggle( this, 'active' );
+				classie.toggle( body, 'cbp-spmenu-push-toleft' );
+				classie.toggle( menuRight, 'cbp-spmenu-open' );
+				disableOther( 'showRightPush' );
+			};
+
+			function disableOther( button ) {
+				if( button !== 'showRightPush' ) {
+					classie.toggle( showRightPush, 'disabled' );
+				}
+			}
+		</script>
+	</body>
+</html>
