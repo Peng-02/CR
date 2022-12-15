@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>FEEDBACK</title>
+
+	<style type="text/css">
+    	
+    	body{text-align:center;margin:0 auto;}
+		    .greybox{background:#e1e1e1;  border:solid 1px yellow;}
+		    .bluebox{background:blue; border:solid 1px white;}
+	    	.redbox{background:red; border:solid 1px black;}
+	    div {border:inherit;background:transparent;margin:5px;}
+
+    	#top {}
+    	#middle{}
+    	#bottom{}
+
+    	#mid_row1_col1{float:left;}
+    	#mid_row1_col2{float:left;}
+    	#mid_row1_col3{float:right;}
+
+    	.clear{clear:both;border:none;height:1px;margin:0;padding:0}
+	</style>
+</head>
+
+<body class="greybox" style="width:900px">
+	<h1>
+		FEEDBACK
+	</h1>
+	<fieldset>
+		<legend>在此留下您的联系方式(邮箱/电话号码)</legend>
+			<input type="text" name="textTest"
+			value="" maxlength="64"
+			size="110"/>
+	</fieldset>
+	<fieldset>
+		<legend>欢迎提出反馈</legend>
+			<select name="comboxTest">
+		        <option selected="true">选择反馈的类型</option>
+		        <option>报告游戏BUG</option>
+		        <option>文档或数据报错</option>
+		        <option>更多补充内容</option>
+			</select>
+
+
+		<legend>在此输入反馈内容</legend>
+			<textarea name="textareaTest"
+				cols="110"
+				rows="4" >
+			</textarea>
+	</fieldset>
+	<fieldset>
+		<legend>在此处添加附件</legend>
+			<input type="file" name="fileTest" size="100" />
+			<input type="button" value="输入的文件信息" onclick="iknow('file')">
+	</fieldset>
+	<input type="submit" value="点击提交"/>
+	<input type="reset" value="重新填写"/>
+	</form>
+</body>
