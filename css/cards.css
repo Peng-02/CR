@@ -21,7 +21,7 @@ main {
     display: flex;
     flex-direction: column;
     margin: auto;
-    background-color: burlywood;
+    background-color: rgb(128, 128, 128);
     height: 1400px;
     width: 1400px;
 }
