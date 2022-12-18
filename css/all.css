@@ -1,4 +1,14 @@
-img {
-	object-fit: cover;
-	object-position: 50% 50%;
+.zhengti{
+    background-color: #edeef0;
+    width: 1380px;
+/*    height: 800px;*/
+    margin: 0 auto;
+}
+
+.clearfix:before, .clearfix:after {
+    content: " ";
+    display: table;
+}
+.clearfix:after { 
+    clear: both; 
 }
