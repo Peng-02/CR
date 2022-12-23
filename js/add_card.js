@@ -91,43 +91,21 @@ function mysearch(){
             window.alert("不存在");
         }else{
             dc = JSON.parse(dc);
-            document.getElementsByName("number")[0].value = mynumber;
-            document.getElementsByName("symbol")[0].value = dc.info_0;
-            document.getElementsByName("zh_symbol")[0].value = dc.info_1;
-            document.getElementsByName("weight")[0].value = dc.info_2;
-            document.getElementsByName("melting_point")[0].value = dc.info_3;
-            document.getElementsByName("boiling_point")[0].value = dc.info_4;
-            document.getElementsByName("periodic")[0].value = dc.info_6;
-            document.getElementsByName("clan")[0].value = dc.info_7;
-            document.getElementsByName("classification")[0].value = dc.info_5;
+            document.getElementsByName("card_id")[0].value = mynumber;
+            document.getElementsByName("card_name")[0].value = dc.info_0;
+            document.getElementsByName("cost")[0].value = dc.info_1;
+            document.getElementsByName("hitpoint")[0].value = dc.info_2;
+            document.getElementsByName("damage")[0].value = dc.info_3;
+            document.getElementsByName("hit_speed")[0].value = dc.info_4;
+            document.getElementsByName("range")[0].value = dc.info_6;
+            document.getElementsByName("rarity")[0].value = dc.info_7;
+            document.getElementsByName("type")[0].value = dc.info_5;
+            document.getElementsByName("target")[0].value = dc.info_6;
+            document.getElementsByName("speed")[0].value = dc.info_7;
             if(dc.rainfo == '0'){
                 document.getElementsByName("a1")[0].checked = "checked";
             }else{
                 document.getElementsByName("a1")[1].checked = "checked";
-            }
-            document.getElementsByName("boxs")[0].checked = "";
-            document.getElementsByName("boxs")[1].checked = "";
-            document.getElementsByName("boxs")[2].checked = "";
-            document.getElementsByName("f_e_number")[0].value = '';
-            document.getElementsByName("d_e_number")[0].value = '';
-            document.getElementsByName("s_e_number")[0].value = '';
-            for(let i = 0; i < 6; i = i + 2){
-                var xxx = dc["info_8_"+ i];
-                var yyy = dc["info_8_"+ (i+1)];
-                if(xxx != ''){
-                    if(xxx.indexOf('f') != -1){
-                        document.getElementsByName("boxs")[0].checked = "checked";
-                        document.getElementsByName("f_e_number")[0].value = yyy;
-                    }
-                    if(xxx.indexOf('d') != -1){
-                        document.getElementsByName("boxs")[1].checked = "checked";
-                        document.getElementsByName("d_e_number")[0].value = yyy;
-                    }
-                    if(xxx.indexOf('s') != -1){
-                        document.getElementsByName("boxs")[2].checked = "checked";
-                        document.getElementsByName("s_e_number")[0].value = yyy;
-                    }
-                }
             }
             
             //清除当前段落并读入保存段落
@@ -239,33 +217,26 @@ function mysearch(){
 function the_submit(){
     let button = document.getElementById("submitbutton");
     button.onclick = () => {
-        if(document.getElementsByName("number")[0].value < 1 || document.getElementsByName("number")[0].value > 118){
-            window.alert("序号超出范围");
+        if(document.getElementsByName("cid")[0].value < 1 || document.getElementsByName("cid")[0].value > 150){
+            window.alert("ID超出范围");
         }else{
             var post = {};
-            post.info_0 = document.getElementsByName("symbol")[0].value;
-            post.info_1 = document.getElementsByName("zh_symbol")[0].value;
-            post.info_2 = document.getElementsByName("weight")[0].value;
-            post.info_3 = document.getElementsByName("melting_point")[0].value;
-            post.info_4 = document.getElementsByName("boiling_point")[0].value;
-            post.info_5 = document.getElementsByName("classification")[0].value;
-            post.info_6 = document.getElementsByName("periodic")[0].value;
-            post.info_7 = document.getElementsByName("clan")[0].value;
+            post.info_0 = document.getElementsByName("cid")[0].value;
+            post.info_1 = document.getElementsByName("card_name")[0].value;
+            post.info_2 = document.getElementsByName("cost")[0].value;
+            post.info_3 = document.getElementsByName("hitpoint")[0].value;
+            post.info_4 = document.getElementsByName("damage")[0].value;
+            post.info_5 = document.getElementsByName("hit_speed")[0].value;
+            post.info_6 = document.getElementsByName("rarity")[0].value;
+            post.info_7 = document.getElementsByName("type")[0].value;
+            post.info_8 = document.getElementsByName("target")[0].value;
+            post.info_9 = document.getElementsByName("speed")[0].value;
             if(document.getElementsByName("a1")[1].checked){
                 post.rainfo = '1';
+                window.alert("1");
             }else{
                 post.rainfo = '0';
-            }
-            let count = 0;
-            for(let i = 0; i < 6; i++){
-                post["info_8_"+ i] = '';
-            }
-            for(let i = 0; i < 3; i++){
-                if(document.getElementsByName("boxs")[i].checked){
-                    post["info_8_"+ (count*2)] = (parseInt(post.info_6)-2+i) + document.getElementsByName("boxs")[i].value;
-                    post["info_8_"+ (count*2+1)] = document.getElementsByName(document.getElementsByName("boxs")[i].value+"_e_number")[0].value;
-                    count++;
-                }
+                window.alert("0");
             }
             var briefs = [];
             var imgs = [];
@@ -275,6 +246,7 @@ function the_submit(){
             for(let i = 0; i<allfieldsets.length; i++){
                 briefs.push(allfieldsets[i].querySelector('textarea').value);
             }
+            window.alert("for");
             let img_obj = document.getElementById("detailimage");
             let upimgs = img_obj.querySelector("div");
             let allimgfieldsets = upimgs.querySelectorAll("fieldset");
@@ -288,26 +260,39 @@ function the_submit(){
             post.briefs = briefs;
             post.imgs = imgs;
             post.dcs = dcs;
-            if(parseInt(post.info_3) > parseInt(post.info_4)){
-                window.alert("熔点不能高于沸点");
-            }else if(post.info_0.length > 3 || post.info_1.length > 1){
+           
+            if(post.info_1.length > 10){
                 window.alert("输入名称过长");
-            }else if(post.info_0.length < 1 || post.info_1.length < 1){
+            }
+            else if(post.info_1.length < 1){
                 window.alert("请输入名称");
-            }else if(post.info_2 == ''){
-                window.alert("请输入质量");
-            }else{
-                var special_count = parseInt(document.getElementsByName("number")[0].value);
-                if(special_count > 57 && special_count < 72){
-                    special_count += 33;
-                }else if(special_count > 71 && special_count < 90){
-                    special_count -= 14;
-                }else if(special_count > 89 && special_count < 104){
-                    special_count += 15;
-                }else if(special_count > 103){
-                    special_count -= 28;
-                }
-                console.log(special_count);
+            }
+            else if(post.info_2 == ''){
+                window.alert("请输入圣水花费");
+            }
+            else if(post.info_3 == ''){
+                window.alert("请输入生命值");
+            }
+            else if(post.info_4 == ''){
+                window.alert("请输入伤害");
+            }
+            else if(post.info_5 == ''){
+                window.alert("请输入攻速");
+            }
+            else if(post.info_6 == '0'){
+                window.alert("请选择稀有度");
+            }
+            else if(post.info_7 == '0'){
+                window.alert("请选择卡牌类型");
+            }
+            else if(post.info_8 == '0'){
+                window.alert("请选择攻击目标");
+            }
+            else if(post.info_9 == '0'){
+                window.alert("请选择移速");
+            }
+            else{
+                console.log(document.getElementsByName("cid")[0].value);
                 localStorage.setItem("post"+special_count, JSON.stringify(post));
                 window.alert("提交成功");
             }

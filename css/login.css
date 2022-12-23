@@ -1,85 +1,144 @@
-@import url("/learnweb/style/normalize.css");
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+
 a{
-    text-decoration:none;
-    font-size:xx-large;
+	text-decoration: none;
 }
-@font-face {
-    font-family: "阿里妈妈数黑体 Bold";
-    font-weight: 700;
-    src: url("../font/Alimama_ShuHeiTi_Bold.woff2") format("woff2"),
-    url("../font/Alimama_ShuHeiTi_Bold.woff") format("woff");
-    font-display: swap;
+
+html{/* 页面背景 */
+	font-size: 8px;/* 整体页面大小 */
+	
 }
-div{
-    font-family:"阿里妈妈数黑体 Bold" ;
+
+html::before{
+	content: '';
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: -1;
+	
+	backdrop-filter:blur(0.8rem);
+	/* background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%) no-repeat; */
 }
-p{
-    font-family:"阿里妈妈数黑体 Bold" ;
+
+::selection{
+	color: #FFFFFF;
+	background-color: rgb(144,129,241);
 }
-body {
-    background-color: white;
+
+.box{
+	display: flex;
+	overflow: hidden;
+	width: 90rem;
+	height: 70rem;
+	/* background-color: rgba(255,255,255,80%); */
+	border-radius: 1.5rem;
+	margin: 10% auto;
+	box-shadow: 0 0 1rem 0.2rem rgb(0 0 0 / 10%);
 }
-main {
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    background-color: burlywood;
-    height: auto;
-    width: 1400px;
+
+.box .left{
+	position: relative;
+	width: 45%;
+	height: 100%;
+	background-color: skyblue;
 }
-main #loginbox{
-    margin: auto;
-    margin-top: 10%;
-    margin-bottom: 12%;
-    padding:3%;
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    height: auto;
-    border-radius: 15px;
-    border-style:solid;
-    border-width: thin;
-    border-color: black;
+
+.box .left::before{/* 插入左侧图片 */
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: url(../image/background/here.png) no-repeat ;
+	background-size: cover;
+	opacity: 80%;
 }
-main #chs{
-    display: flex;
-    width: 96%;
-    height: 8%;
-    margin-top: 2%;
-    margin-left: 2%;
-    background-color: white;
+
+.box .right{
+	display: flex;
+	width: 55%;
+	flex-direction: column;
+	align-items: center;
+	background-color: rgba(255,255,255,80%);
 }
-main #chs .dch{
-    display: flex;
-    width: 20%;
-    height: 54%;
-    margin-top: 2%;
-    margin-bottom: 2%;
-    padding-top: 1%;
-    padding-bottom: 1%;
-    margin-left: 4%;
-    background-color:aqua;
+
+.box .right h4{/* 开头登入二字字体 */
+	color: rgb(144,129,241);
+	font-size: 3rem;
+	margin-top: 10rem;
 }
-main #chs .dch:hover{background-color: skyblue;}
-@media (max-width: 992px) {
-    main {
-        width: 100%;
-        height: auto;
-    }
-    main #chs{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-        height: auto;
-    }
-    main #chs .dch{
-        display: flex;
-        width: 70%;
-        margin:auto;
-        margin-top: 2%;
-        margin-bottom: 2%;
-        padding-top: 2%;
-        padding-bottom: 2%;
-        height: auto;
-    }
+
+.box .right form{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.box .right form .acc{/* 输入框 */
+	outline: none;
+	width: 80%;
+	height: 5rem;
+	font-size: 1.6rem;
+	margin-top: 5rem;
+	padding: 0 0 0 1.6rem;
+	border: none;/* 去掉输入框的边框 */
+	border-bottom: 1px solid rgb(144,129,241);
+	color: rgb(144,129,241);
+	background-color: rgba(0,0,0,0);
+}
+
+.right form .acc:focus{ 
+	outline: none;
+	color:#FF7F50;
+	
+	padding: 0 0 0 1.6rem;
+}
+
+.submit{/* 登入按钮 */
+	width: 200px;
+	height: 5rem;
+	color: #f6f6f6;
+	background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+	font-size: 1.4rem;
+	border: none;
+	border-radius: 0.5rem;
+	margin: 6rem 0 0 50%;
+	transform: translateX(-50%);
+}
+
+.get-account{/* 登入按钮 */
+	width: 100px;
+	height: 5rem;
+	color: #f6f6f6;
+	font-size: 1.4rem;
+	border: none;
+	border-radius: 0.5rem;
+	margin: 6rem 0 0 50%;
+	transform: translateX(-50%);
+}
+
+.right .submit:hover{
+	box-shadow: 0 0 2rem -0.5rem rgb(0 0 0 /15%);
+}
+
+.right .down{
+	display: flex;
+	justify-content: space-between;
+	margin-top: 1rem;
+	width: 70%;
+}
+
+.right .down a{
+	font-size: 1.3rem;
+	margin-top: 5rem;
+	padding: 1rem 2rem;
+	color: #666;
+}
+
+.right .down a:hover{
+	color: rgb(144,129,241);
 }

@@ -1,53 +1,58 @@
-function login(){
-    var usernumbers = ["000","001","002"];
-    var passwords = ["000","001","002"];
-    let obj = document.getElementById("login_input");
-    let button = obj.querySelector("button");
-    let usernumber = document.getElementById("user_number");
-    let password = document.getElementById("password");
-    button.onclick = () => {
-        if(usernumber.value == ""){
-            window.alert("请输入账号");
-        }
-        else if(password.value == ""){
-            window.alert("请输入密码");
-        }
-        else{
-            let i = 0 ;
-            for(; i < passwords.length; ++i){
-                if(usernumbers[i] == usernumber.value){
-                    if(passwords[i] == password.value){
-                        document.cookie = 'islogin=1';
-                        window.location = "form.html";
-                    }
-                    else{
-                        window.alert("密码错误");
-                    }
-                    break;
-                }
-            }
-            if(i == passwords.length){
-                window.alert("账号不存在");
-            }
-        }
+let users=[{name:'user1',pwd:'111111'},{name:'user2',pwd:'222222'},{name:'user3',pwd:'333333'}];
+let admin=[{name:'pwj',pwd:'20184404'},{name:'admin',pwd:'123456'}]
+
+let username=document.getElementById("uname");
+let pwd=document.getElementById("pwd");
+let btn=document.getElementById("login");
+
+function setCookie(uname){
+    document.cookie = uname;
+}
+
+function checkCookie(){
+    let i = 0;
+      for(i = 0; i < users.length;i++){
+        f1 = document.cookie.indexOf(users[i].name);
+        if(f1 >= 0)break;
+      }
+      for(i = 0; i < users.length;i++){
+        f2 = document.cookie.indexOf(users[i].name);
+        if(f2 >= 0)break;
+      }
+      if (f1>=0||f2>=0){
+        alert("您已经登录");
+        location.href="index.html";
+      }
+}
+
+function check_login(){
+    var username=document.getElementById("uname").value;
+    var passwd=document.getElementById("psw").value;
+    let ret=users.some(function(value){
+        return value.name==username.value && value.pwd==pwd.value;
+    });
+    
+    let check_admin=admin.some(function(value){
+        return value.name==username.value && value.pwd==pwd.value;
+    });
+    
+    if(username.value==localStorage.getItem('username1') && pwd.value==localStorage.getItem('pwd1')){
+        alert("用户登入成功");
+        window.location.href="index.html";
+            /* 判断是否是预设账户 并判断是用户或管理分别跳转 */		
+    }
+    else if(ret){
+        setCookie(username);
+        alert("用户登入成功");
+        location.href="../index.html"
+    }
+    else if(check_admin){
+        setCookie(username);
+        alert("管理员登入成功");
+        location.href="../index.html";
+    }
+    else{/* 输入错误 */
+        alert("输入正确用户名和密码");
     }
 }
-var cookies = document.cookie.split(";");
-let i = 0;
-console.log(cookies.length);
-for(; i < cookies.length; ++i){
-    var dc = cookies[i].split("=");
-    console.log(dc);
-    if(dc[0]=='islogin' || dc[0]==' islogin'){
-        console.log(dc[1]);
-        if(dc[1]=="1"){
-            window.location = "form.html";
-        }else{
-            login();
-        }
-        break;
-    }
-}
-if(i == cookies.length){
-    login();
-}
+btn.onclick() = check_login();

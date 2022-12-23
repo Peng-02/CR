@@ -1,100 +1,32 @@
-  <!DOCTYPE html>
-  <html>
-  <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-  body {font-family: Arial, Helvetica, sans-serif;}
-  * {box-sizing: border-box;}
-  
-  input[type=text], select, textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    margin-top: 6px;
-    margin-bottom: 16px;
-    resize: vertical;
-  }
-  
-  input[type=button] {
-    position: relative;
-    left:45%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    text-align: button;
-  }
-  
-  input[type=submit]:hover {
-    background-color: #45a049;
-  }
-  
-  .container {
-      position: absolute;
-      left: 25%;
-      width: 50%;
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
-  }
-  </style>
-  
-  <script>
-      function setCookie(cname){
-          document.cookie = cname;
-      }
-  
-      function checkCookie(){
-        var co = document.cookie;
-          f = document.cookie.indexOf("admin");
-          if (f>=0){
-              alert("您已经登录");
-              location.href="./cookie";
-          }
-      }
-      </script>
-  </head>
-  <body onload="checkCookie()">
-  
-  <script type="text/javascript">
-          function checkUser(){
-              var username=document.getElementById("name").value;
-              var password=document.getElementById("psw").value;
-              if(username=="admin" && password==123){
-  
-                      setCookie(username);
-                      alert("登录成功");
-                      location.href="add_card.html";
-              }else{
-                  alert("用户或密码输入错误");
-              }
-          }
-  
-  </script>
-  
-  <div>
-      <a href="index.html">首页</a>
-  </div>   
-  
-  <h3 align="center">账号登录</h3>
-  
-  <div class="container" >
-    <form>
-      <label for="name">User name</label>
-      <input type="text" id="name" placeholder="User name : admin">
-  
-      <label for="Email">password</label>
-      <input type="text" id="psw" placeholder="password : 123">
-      <input type="button" value="登录" onclick="checkUser()">
-    </form>
-  </div>
-  
-  
-  
-  </body>
-  </html>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>登入界面</title>
+		<link rel="stylesheet" href="css/login.css"/>
+		<!-- <link rel="stylesheet" type="text/css" href="css/reset.css" /> -->
+	</head>
+	<body onload="checkCookie()">
+		<div class="box">
+			<div class="left" background = "" no-repeat ;></div>
+			<div class="right">
+				<h4>登 录</h4>
+				
+				<form  action="#">
+					<input class="acc" type="text" id="uname" placeholder="用户名"/>
+					<input class="acc" type="password" id="pwd" placeholder="密码"/>
+				</form>
+				<from  action="#">
+						<input class="submit" type="submit" id="login" value="登录"/>
+				</from>
+				
+				<div class="down">
+					<a href="signin.html">注册账号</a>
+					<from  action="#">
+						<input class="get-account" type="get-account" id="getac" value="预置管理员账号"/>
+				</from>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
