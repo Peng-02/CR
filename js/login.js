@@ -48,12 +48,20 @@ function checkUser(){
             break;
         }
     }
-    if(f1||f2>0){
+    if(f1>0){
             setCookie(username);
-            alert("登录成功！");
+            alert("用户登录成功！");
             window.location.href="index.html";
-
-    }else{
-        alert("用户或密码输入错误");
+    }
+    else if(f2>0){
+        setCookie(username);
+        alert("管理员登录成功！");
+        window.location.href="index.html";
+    }
+    else if(username.length <=0){
+        alert("请输入用户名！");
+    }
+    else{
+        alert("用户名或密码输入错误！");
     }
 }
