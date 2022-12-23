@@ -14,8 +14,8 @@ function checkCookie(){
         if(f1>=0)break;
     }
     for(i=0;i<admins.length;i++){
-        f1 = document.cookie.indexOf(users.name);
-        if(f1>=0)break;
+        f2 = document.cookie.indexOf(users.name);
+        if(f2>=0)break;
     }
     if (f1>=0||f2>=0){
         alert("您已经登录");
