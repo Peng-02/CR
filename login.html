@@ -4,20 +4,21 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="css/login.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<title>login</title>
 	</head>
 	<body onload="checkCookie()">
-		<div>
-    		<a href="index.html">首页</a>
-		</div>
-
-		<h3 align="center">账号登录</h3>
+		<h1 align="center">登录</h3>
 		<div class="container" >
   			<form>
-    			<label for="name">User name</label>
+    			<label for="name">用户名</label>
 			    <input type="text" id="name">
-    			<label for="Email">password</label>
+    			<label for="Email">密码</label>
     			<input type="text" id="psw">
     			<input type="button" value="登录" onclick="checkUser()">
+				<a href="./signin.html"target="_blank">
+					<p align="center">注册账号</p>
+				</a>
   			</form>
 		</div>
 		<script src="js/login.js"></script>
